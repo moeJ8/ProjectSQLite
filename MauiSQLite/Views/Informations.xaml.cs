@@ -6,9 +6,9 @@ public partial class Informations : ContentPage
 {
     int stuID;
     int uniID;
-    string stuName, uniName, major;
+    string stuName, uniName, major, stuLastName;
+    public double totalPrice = 0.0;
 
-    
     public Informations()
 	{
 		InitializeComponent();
@@ -28,11 +28,15 @@ public partial class Informations : ContentPage
 
     private void show_Clicked(object sender, EventArgs e)
     {
+        var uni = App.DBTrans.GetUniversityById(uniID);
+        totalPrice += (double)uni.Price;
         App.DBTrans.AddApplication(new Models.Applications
         {
+
             StudentID = stuID,
             UniversityID = uniID,
             StudentName = stuName,
+            StudentLastName = stuLastName,
             UniversityName = uniName,
             Major = major
 
@@ -51,6 +55,7 @@ public partial class Informations : ContentPage
         var student = e.Item as StudentClass;
         stuID = student.ID;
         stuName = student.Name;
+        stuLastName = student.LastName;
     }
 
     private void Del_Button_Clicked(object sender, EventArgs e)
@@ -59,10 +64,29 @@ public partial class Informations : ContentPage
         App.DBTrans.DeleteApplication((int)button.BindingContext);
         info_List_View.ItemsSource = App.DBTrans.GetAllApplications();
     }
+   private double CalculateTotalPrice()
+    {
+        double total = 0.0;
+
+        // Iterate through the items in info_List_View to calculate the total price
+        foreach (var item in info_List_View.ItemsSource)
+        {
+            if (item is Models.Applications application)
+            {
+                var uni = App.DBTrans.GetUniversityById(application.UniversityID);
+                total += (double)uni.Price;
+            }
+        }
+
+        return total;
+    }
+
 
     private async void continue_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//Payment");
+
+        totalPrice = CalculateTotalPrice();
+        await Shell.Current.GoToAsync($"//Payment?totalPrice={totalPrice}");
     }
     private async void Previous_Clicked(object sender, EventArgs e)
     {

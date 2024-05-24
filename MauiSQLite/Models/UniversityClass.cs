@@ -15,5 +15,6 @@ namespace MauiSQLite.Models
         public string Location { get; set; }
         public string Major { get; set; }
         public decimal Price { get; set; }
+
     }
 }

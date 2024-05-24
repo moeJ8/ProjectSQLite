@@ -17,9 +17,18 @@ namespace MauiSQLite.DataTransactions
         public DBTrans(string _dbPath)
         {
             this.dbPath = _dbPath;
+            Init();
+        }
+        public void Init()
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.CreateTable<StudentClass>();
+            conn.CreateTable<UniversityClass>();
+            conn.CreateTable<PaymentInfo>();
+            conn.CreateTable<Applications>();
         }
 
-        public void Init1()
+        /*public void Init1()
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<StudentClass>();
@@ -43,11 +52,11 @@ namespace MauiSQLite.DataTransactions
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<Applications>();
-        }
+        }*/
 
         public List<StudentClass> GetAllStudents()
         {
-            Init1();
+            
             return conn.Table<StudentClass>().ToList();
         }
         public void Add(StudentClass student)
@@ -65,7 +74,7 @@ namespace MauiSQLite.DataTransactions
 
         public List<UniversityClass> GetAllUniversities()
         {
-            Init2();
+           
             return conn.Table<UniversityClass>().ToList();
         }
 
@@ -80,11 +89,16 @@ namespace MauiSQLite.DataTransactions
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new UniversityClass { ID = university_ID });
         }
+        public UniversityClass GetUniversityById(int id)
+        {
 
-        
+            return conn.Find<UniversityClass>(id);
+        }
+
+
         public List<MajorClass> GetAllMajors()
         {
-            Init1();
+           
             return conn.Table<MajorClass>().ToList();
         }
 
@@ -102,7 +116,7 @@ namespace MauiSQLite.DataTransactions
 
         public List<PaymentInfo> GetAllPayments()
         {
-            Init3();
+            
             return conn.Table<PaymentInfo>().ToList();
         }
         public void AddPayment(PaymentInfo payment)
@@ -114,12 +128,13 @@ namespace MauiSQLite.DataTransactions
         public void DeletePayment(int payment_ID)
         {
             conn = new SQLiteConnection(this.dbPath);
-            conn.Delete(new PaymentInfo { ID = payment_ID });
+
+           conn.Delete(new PaymentInfo { ID = payment_ID });
         }
        
         public List<Applications> GetAllApplications()
         {
-            Init4();
+            
             return conn.Table<Applications>().ToList();
         }
         public void AddApplication(Applications app)
@@ -133,5 +148,6 @@ namespace MauiSQLite.DataTransactions
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new Applications { ApplicationID = app });
         }
+        
     }
 }

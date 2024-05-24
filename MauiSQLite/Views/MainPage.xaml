@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSQLite.MainPage"
              Title="Personal Informations">
+    <ScrollView >
 
-    <StackLayout>
+        <StackLayout >
 
         <Label Text="Fill In Your Informations" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" Margin="0,20,0,10"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
@@ -59,7 +60,7 @@
             <RadioButton x:Name="other" Content="other" TextColor="#333333"/>
          </StackLayout>
 
-        <Button x:Name="Button_Add" Text="Add" Clicked="Button_Add_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Button x:Name="Button_Add" Text="Add" Clicked="Button_Add_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
         <StackLayout>
             <StackLayout>
                 
@@ -83,7 +84,7 @@
                                         <Label Text="{Binding Age} " Margin="5,0" TextColor="#37474F"/>
                                         <Label Text="{Binding Gender}" Margin="5,0" TextColor="#37474F"/>
                                         <Label Text="{Binding Department}" Margin="5,0" TextColor="#37474F"/>
-                                        <Button Text="Delete" BindingContext="{Binding ID}" Clicked="Del_Button_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545"/>
+                                        <Button Text="X" BindingContext="{Binding ID}" Clicked="Del_Button_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545" CornerRadius="100" WidthRequest="40" HeightRequest="40" FontAttributes="Bold"/>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
@@ -93,9 +94,10 @@
             </ScrollView>
         </StackLayout>
 
-        <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
 
 
     </StackLayout>
-
+        
+    </ScrollView>
 </ContentPage>

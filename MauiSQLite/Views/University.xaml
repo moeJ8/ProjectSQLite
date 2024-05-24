@@ -3,13 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSQLite.University"
              Title="University">
-
+    <ScrollView>
+        
+    
     <StackLayout>
 
         <Label Text="Type The University Name" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" Margin="0,20,0,10"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
-            <Entry x:Name="Uni_Name" Placeholder="Name" WidthRequest="130" BackgroundColor="#FFFFFF" PlaceholderColor="#999999" Margin="0,0,10,0"/>
-            <Entry x:Name="Uni_Location" Placeholder="Location" WidthRequest="130" BackgroundColor="#FFFFFF" PlaceholderColor="#999999" Margin="0,0,10,0"/>
+            
+                <Picker x:Name="UniPicker" Title="Name" BackgroundColor="#FFFFFF" TextColor="#333333"  TitleColor="#999999" WidthRequest="170" SelectedIndexChanged="UniPicker_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>Birzeit University</x:String>
+                        <x:String>Istanbul University</x:String>
+                        <x:String>Istanbul TECHNICAL University</x:String>
+                        <x:String>Ankara University</x:String>
+                        <x:String>Boazici University</x:String>
+                        <x:String>Antalya BILIM University</x:String>
+                        <x:String>Uskudar University</x:String>
+                        <x:String>Koç University</x:String>
+                        <x:String>Bahçesehir University</x:String>
+                        <x:String>Harvard University</x:String>
+                        <x:String>Stanford University</x:String>
+                        <x:String>Johns Hopkins University</x:String>
+                        <x:String>Florida International University</x:String>
+                        <x:String>Massachusetts Institute of Technology (MIT)</x:String>
+                        <x:String>Freie Universität Berlin</x:String>
+                        <x:String>University of Bonn</x:String>
+                        <x:String>University of Göttingen</x:String>
+                        <x:String>Humboldt University of Berlin</x:String>
+                        <x:String>Technical University of Munich</x:String>
+                        <x:String>Universidad Complutense de Madrid</x:String>
+                        <x:String>University De Mahajanga</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry x:Name="Uni_Location" Placeholder="Location" WidthRequest="130" BackgroundColor="#FFFFFF" PlaceholderColor="#999999" Margin="0,0,10,0"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
             <Picker x:Name="MajorPicker" Title="Major" BackgroundColor="#FFFFFF" TextColor="#333333"  TitleColor="#999999" WidthRequest="170">
@@ -21,7 +48,7 @@
                     <x:String>Electrical engineering</x:String>
                     <x:String>Mechanical Engineering</x:String>
                     <x:String>Civil Engineering</x:String>
-                    <x:String>Software Engineering</x:String>
+                    <x:String>Mining Engineering</x:String>
                     <x:String>Computer Science</x:String>
                     <x:String>Markiting</x:String>
                     <x:String>Public Relations</x:String>
@@ -31,7 +58,7 @@
             </Picker>
         </StackLayout>
 
-        <Button x:Name="Button_AddUni" Text="Add University" Clicked="Button_AddUni_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Button x:Name="Button_AddUni" Text="Add University" Clicked="Button_AddUni_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
 
         <StackLayout>
             <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="400">
@@ -45,11 +72,11 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding ID}" Margin="10,0,10,0" TextColor="#37474F"/>
-                                        <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F"/>
-                                        <Label Text="{Binding Location}" Margin="5,0" TextColor="#37474F"/>
-                                        <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F"/>
-                                        <Button Text="Delete" BindingContext="{Binding ID}" Clicked="Del_Button_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545"/>
+                                            <Label Text="{Binding ID}" Margin="5,0,5,0" TextColor="#DC3545" FontSize="10" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                                            <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F" FontSize="10" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F" FontSize="10" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                            <Button Text="X" FontSize="10" BindingContext="{Binding ID}" Clicked="Del_Button_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545" CornerRadius="20" WidthRequest="40" HeightRequest="40" FontAttributes="Bold"/>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
@@ -61,9 +88,10 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 
-            <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
-            <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
+            <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,10,10"/>
+            <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,10,10"/>
         
         </StackLayout>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

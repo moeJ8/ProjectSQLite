@@ -14,6 +14,7 @@ namespace MauiSQLite.Models
         public int StudentID { get; set; }
         public int UniversityID { get; set; }
         public string StudentName { get; set; }
+        public string StudentLastName { get; set; }
         public string UniversityName { get; set; }
         public string Major { get; set; }
 

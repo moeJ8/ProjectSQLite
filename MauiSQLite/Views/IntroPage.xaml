@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSQLite.IntroPage"
              Title="Home">
-    <VerticalStackLayout>
+    
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White">
+        
+            
+        
+        <StackLayout >
+            
+        
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome to Universities registration Application"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            FontAttributes="Bold"
+            />
+        </StackLayout>
+        <StackLayout Padding="20">
+            
+        
+        <Label Text="To apply for the universities you want, please start filling your information in the next tap" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Padding="20"/>
+        </StackLayout>
+        <StackLayout Padding="20">
+
+
+            <Button x:Name="Continue" Text="Continue" Clicked="Continue_Clicked"  WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        </StackLayout>
     </VerticalStackLayout>
+    
+
 </ContentPage>

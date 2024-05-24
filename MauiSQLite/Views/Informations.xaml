@@ -5,11 +5,12 @@
              Title="Informations">
     <ScrollView>
         <StackLayout>
-            <Label Text="Select to Continue Your Applications" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold" Padding="10"/>
+            <Label Text="Select to Continue Your Applications" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" Padding="10" Margin="0,0,0,5"/>
             <StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                    
-                    <StackLayout Padding="4">
+
+                    <StackLayout Margin="2,0">
+                        <Label Text="Applicants" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,10" FontSize="12"/>
                         <ScrollView>
                             <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="200" >
 
@@ -20,8 +21,9 @@
                                                 
                                                     <StackLayout Orientation="Horizontal">
 
-                                                        <Label Text="{Binding ID}" TextColor="#37474F"/>
-                                                        <Label Text="{Binding LastName}" Margin="5,0" TextColor="#37474F"/>
+                                                    <Label Text="{Binding ID}" Margin="5,0" TextColor="#DC3545" FontSize="12" VerticalTextAlignment="Center"  FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F" FontSize="12" VerticalTextAlignment="Center"/>
+                                                    <Label Text="{Binding LastName}" Margin="5,0" TextColor="#37474F" FontSize="12" VerticalTextAlignment="Center"/>
 
 
                                                     </StackLayout>
@@ -34,7 +36,8 @@
                         </ScrollView>
                     </StackLayout>
 
-                    <StackLayout>
+                    <StackLayout >
+                        <Label Text="Universities" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,10" FontSize="12"/>
                         <ScrollView>
                             <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="200">
                                 <ListView x:Name="Uni_List_View" Background="#CFD8DC" WidthRequest="200" HeightRequest="150" ItemTapped="Uni_List_View_ItemTapped">
@@ -42,12 +45,11 @@
                                         <DataTemplate>
                                             <ViewCell>
                                                 <StackLayout Orientation="Horizontal">
-                                                    
-                                                    <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F"/>
-                                                    <Label Text="{Binding Location}" Margin="5,0" TextColor="#37474F"/>
-                                                    <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F"/>
-                                                    
-                                                    
+                                                    <Label Text="{Binding ID}" Margin="5,0" TextColor="#DC3545" FontSize="12" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F" FontSize="12" VerticalTextAlignment="Center"/>
+                                                    <Label Text="{Binding Location}" Margin="5,0" TextColor="#37474F" FontSize="12" VerticalTextAlignment="Center"/>
+                                                    <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F" FontSize="12" VerticalTextAlignment="Center"/>
+                              
                                                 </StackLayout>
                                             </ViewCell>
                                         </DataTemplate>
@@ -59,23 +61,32 @@
                 </StackLayout>
 
                 <StackLayout Padding="10">
-                    <Button x:Name="show" Text="Show" Clicked="show_Clicked" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" />
+                    <Button x:Name="show" Text="Show" Clicked="show_Clicked" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" WidthRequest="80"/>
                 </StackLayout>
-                
+
                 <StackLayout>
+                    <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="400">
+                        <Label Text="Final Applications" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+                    </Frame>
                     <ScrollView>
+                        
                         <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="400">
+                          
                             <ListView x:Name="info_List_View" Background="#CFD8DC" WidthRequest="400">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding StudentName}" Margin="5,0" TextColor="#37474F"/>
-                                                <Label Text="{Binding UniversityName}" Margin="5,0" TextColor="#37474F"/>
-                                                <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F"/>
+                                                 <Label Text="{Binding StudentID}" Margin="10,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding StudentName}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding StudentLastName}" Margin="10,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding UniversityID}" Margin="5,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding UniversityName}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
+                                                <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
 
-                                                <Button x:Name="Del_Button" Text="Delete" BindingContext="{Binding ApplicationID}" Clicked="Del_Button_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545"/>
+                                                <Button x:Name="Del_Button" Text="X" BindingContext="{Binding ApplicationID}" Clicked="Del_Button_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545" CornerRadius="100" WidthRequest="40" HeightRequest="40" FontAttributes="Bold"/>
                                             </StackLayout>
+                                            
                                         </ViewCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -85,8 +96,8 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
-                <Button x:Name="Continue" Text="CheckOut" Clicked="continue_Clicked"  WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10" />
+                <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,10,10"/>
+                <Button x:Name="Continue" Text="CheckOut" Clicked="continue_Clicked"  WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,10,10" />
             </StackLayout>
         </StackLayout>
     </ScrollView>

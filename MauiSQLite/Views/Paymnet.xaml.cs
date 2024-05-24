@@ -5,10 +5,18 @@ namespace MauiSQLite;
 
 public partial class Payment : ContentPage
 {
-	public Payment()
-	{
-		InitializeComponent();
-	}
+    public double TotalPrice
+    {
+        set
+        {
+            TotalAmountLabel.Text = $"Total amount to be paid is {value:C}";
+        }
+    }
+    public Payment()
+    {
+        InitializeComponent();
+
+    }
     private async void Button_AddPay_Clicked(object sender, EventArgs e)
     {
 
@@ -18,9 +26,9 @@ public partial class Payment : ContentPage
         string.IsNullOrWhiteSpace(expYear.Text) ||
         string.IsNullOrWhiteSpace(cvv.Text))
         {
-            
+
             await DisplayAlert("Error", "Please fill in all fields", "OK");
-            return; 
+            return;
         }
         App.DBTrans.AddPayment(new PaymentInfo
         {
@@ -38,10 +46,11 @@ public partial class Payment : ContentPage
         expYear.Text = string.Empty;
         cvv.Text = string.Empty;
 
-        
+
         await DisplayAlert("Payment Successful", "The payment was completed successfully", "OK");
 
     }
+
 
     private void Del_Button_Clicked(object sender, EventArgs e)
     {

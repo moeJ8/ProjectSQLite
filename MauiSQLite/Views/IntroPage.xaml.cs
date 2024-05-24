@@ -6,4 +6,9 @@ public partial class IntroPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void Continue_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//MainPage");
+    }
 }

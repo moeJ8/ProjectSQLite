@@ -2,13 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSQLite.Payment"
-             Title="Payment">
+             Title="Payment" >
 
     <StackLayout>
-
-
         
-        <Label Text="Total amount should be paid is 100$"  TextColor="#333333"  Margin="20,20,0,20"/>
+
+
+        <StackLayout Orientation="Horizontal">
+            
+        
+        <Label x:Name="TotalAmountLabel" Text="Total Amount Should Be Paid Is " TextColor="#333333"  Margin="20,20,0,20" FontAttributes="Bold"/>
+            <Label Text="3500$" Margin="0,20,0,20" TextColor="DarkGreen"/>
+        </StackLayout>
         <Label Text="Card Informations"  FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" Margin="0,20,0,10"/>
         <Entry x:Name="cardName" Placeholder="Card Holder Name" WidthRequest="200" BackgroundColor="#FFFFFF" PlaceholderColor="#999999" Margin="0,0,10,0" Keyboard="Text"/>
         <StackLayout>
@@ -22,7 +27,7 @@
 
         </StackLayout>
 
-        <Button x:Name="Button_AddPay" Text="Pay" Clicked="Button_AddPay_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Button x:Name="Button_AddPay" Text="Pay" Clicked="Button_AddPay_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
 
         <!-- <ScrollView>
     <ListView x:Name="Pay_List_View">
@@ -42,7 +47,7 @@
 </ScrollView> -->
         
 
-        <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
+        <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="20" HorizontalOptions="Center" Margin="0,20,0,10"/>
 
     </StackLayout>
 </ContentPage>

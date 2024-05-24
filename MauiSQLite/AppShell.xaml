@@ -8,20 +8,20 @@
     Title="MauiSQLite">
 
     <TabBar >
-        <Tab Title="Home">
+        <Tab Title="Home" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate local:IntroPage}" Route="IntroPage"  />
         </Tab>
-        <Tab Title="Student Info">
+        <Tab Title="Student Info" Icon="pers.png">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"  />
         </Tab>
-        <Tab Title="University">
+        <Tab Title="University" Icon="unii.png">
             <ShellContent ContentTemplate="{DataTemplate local:University}" Route="University"  />
         </Tab>
-        <Tab Title="Information">
+        <Tab Title="Completion" Icon="check.png">
             <ShellContent ContentTemplate="{DataTemplate local:Informations}" Route="Informations"  />
         </Tab>
 
-        <Tab Title="Payment">
+        <Tab Title="Payment" Icon="coin.png">
             <ShellContent ContentTemplate="{DataTemplate local:Payment}" Route="Payment"  />
         </Tab>
 

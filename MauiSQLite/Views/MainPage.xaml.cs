@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.Maui;
+using System.Reflection;
 
 namespace MauiSQLite
 {
@@ -13,8 +14,24 @@ namespace MauiSQLite
             Stu_List_View.ItemsSource = App.DBTrans.GetAllStudents();
         }
 
-        private void Button_Add_Clicked(object sender, EventArgs e)
+        private async void Button_Add_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Stu_Name.Text) ||
+                string.IsNullOrWhiteSpace(Stu_LastName.Text) ||
+                string.IsNullOrWhiteSpace(Stu_Email.Text) ||
+                string.IsNullOrWhiteSpace(Stu_Phone.Text))
+            {
+
+                await DisplayAlert("Error", "Please fill in the required fields", "OK");
+                return;
+            }
+            var selectedage = AgePicker.SelectedItem as string;
+            if (selectedage== null)
+            {
+
+                DisplayAlert("Error", "Please fill in your age", "OK");
+                return;
+            }
             App.DBTrans.Add(new Models.StudentClass
             {
                 Name = Stu_Name.Text,
