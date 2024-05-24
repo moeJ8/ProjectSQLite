@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSQLite.Informations"
+             Title="Informations">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Select to Continue Your Applications" HorizontalOptions="Center" FontSize="15" FontAttributes="Bold" Padding="10"/>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                    
+                    <StackLayout Padding="4">
+                        <ScrollView>
+                            <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="200" >
+
+                                <ListView x:Name="Stu_List_View" Background="#CFD8DC" WidthRequest="200"  HeightRequest="150" ItemTapped="Stu_List_View_ItemTapped" >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                
+                                                    <StackLayout Orientation="Horizontal">
+
+                                                        <Label Text="{Binding ID}" TextColor="#37474F"/>
+                                                        <Label Text="{Binding LastName}" Margin="5,0" TextColor="#37474F"/>
+
+
+                                                    </StackLayout>
+                                               
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Frame>
+                        </ScrollView>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ScrollView>
+                            <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="200">
+                                <ListView x:Name="Uni_List_View" Background="#CFD8DC" WidthRequest="200" HeightRequest="150" ItemTapped="Uni_List_View_ItemTapped">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout Orientation="Horizontal">
+                                                    
+                                                    <Label Text="{Binding Name}" Margin="5,0" TextColor="#37474F"/>
+                                                    <Label Text="{Binding Location}" Margin="5,0" TextColor="#37474F"/>
+                                                    <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F"/>
+                                                    
+                                                    
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Frame>
+                        </ScrollView>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Padding="10">
+                    <Button x:Name="show" Text="Show" Clicked="show_Clicked" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" />
+                </StackLayout>
+                
+                <StackLayout>
+                    <ScrollView>
+                        <Frame CornerRadius="20" BackgroundColor="#CFD8DC" WidthRequest="400">
+                            <ListView x:Name="info_List_View" Background="#CFD8DC" WidthRequest="400">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding StudentName}" Margin="5,0" TextColor="#37474F"/>
+                                                <Label Text="{Binding UniversityName}" Margin="5,0" TextColor="#37474F"/>
+                                                <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F"/>
+
+                                                <Button x:Name="Del_Button" Text="Delete" BindingContext="{Binding ApplicationID}" Clicked="Del_Button_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Frame>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
+                <Button x:Name="Continue" Text="CheckOut" Clicked="continue_Clicked"  WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

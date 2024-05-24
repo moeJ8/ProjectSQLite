@@ -17,12 +17,19 @@ namespace MauiSQLite
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            string _dbPath = Path.Combine(FileSystem.AppDataDirectory, "Studet.db");
+            string _dbPath = Path.Combine(FileSystem.AppDataDirectory, "Studet.db2");
 
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<DBTrans>(s, _dbPath));
 
+            builder.Services.AddSingleton<StudentClass>();
             builder.Services.AddSingleton<UniversityClass>();
+            builder.Services.AddSingleton<Applications>();
+            builder.Services.AddSingleton<PaymentInfo>();
             builder.Services.AddSingleton<MajorClass>();
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+
 
             return builder.Build();
         }

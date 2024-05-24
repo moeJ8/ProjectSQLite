@@ -60,10 +60,10 @@
 
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            
+
+            <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
+            <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
         
-        <Button Text="Continue" Clicked="GoToUniversityPage_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
-        <Button Text="Previous" Clicked="Previous_Clicked" WidthRequest="100" BackgroundColor="#007BFF" TextColor="#FFFFFF" CornerRadius="5" HorizontalOptions="Center" Margin="0,20,10,10"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

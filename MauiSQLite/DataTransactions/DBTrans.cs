@@ -19,18 +19,35 @@ namespace MauiSQLite.DataTransactions
             this.dbPath = _dbPath;
         }
 
-        public void Init()
+        public void Init1()
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<StudentClass>();
-            conn.CreateTable<UniversityClass>(); 
-            conn.CreateTable<MajorClass>();
+            
+            
+            
+        }
+        public void Init2()
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.CreateTable<UniversityClass>();
+
+            
+        }
+        public void Init3()
+        {
+            conn = new SQLiteConnection(this.dbPath);
             conn.CreateTable<PaymentInfo>();
+        }
+        public void Init4()
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.CreateTable<Applications>();
         }
 
         public List<StudentClass> GetAllStudents()
         {
-            Init();
+            Init1();
             return conn.Table<StudentClass>().ToList();
         }
         public void Add(StudentClass student)
@@ -48,7 +65,7 @@ namespace MauiSQLite.DataTransactions
 
         public List<UniversityClass> GetAllUniversities()
         {
-            Init();
+            Init2();
             return conn.Table<UniversityClass>().ToList();
         }
 
@@ -67,7 +84,7 @@ namespace MauiSQLite.DataTransactions
         
         public List<MajorClass> GetAllMajors()
         {
-            Init();
+            Init1();
             return conn.Table<MajorClass>().ToList();
         }
 
@@ -85,7 +102,7 @@ namespace MauiSQLite.DataTransactions
 
         public List<PaymentInfo> GetAllPayments()
         {
-            Init();
+            Init3();
             return conn.Table<PaymentInfo>().ToList();
         }
         public void AddPayment(PaymentInfo payment)
@@ -98,6 +115,23 @@ namespace MauiSQLite.DataTransactions
         {
             conn = new SQLiteConnection(this.dbPath);
             conn.Delete(new PaymentInfo { ID = payment_ID });
+        }
+       
+        public List<Applications> GetAllApplications()
+        {
+            Init4();
+            return conn.Table<Applications>().ToList();
+        }
+        public void AddApplication(Applications app)
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.Insert(app);
+        }
+
+        public void DeleteApplication(int app)
+        {
+            conn = new SQLiteConnection(this.dbPath);
+            conn.Delete(new Applications { ApplicationID = app });
         }
     }
 }

@@ -51,6 +51,6 @@ public partial class Payment : ContentPage
     }
     private async void Previous_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//University");
+        await Shell.Current.GoToAsync("//Informations");
     }
 }

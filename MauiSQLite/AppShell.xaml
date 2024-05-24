@@ -14,6 +14,10 @@
         <Tab Title="University">
             <ShellContent ContentTemplate="{DataTemplate local:University}" Route="University"  />
         </Tab>
+        <Tab Title="Informations">
+            <ShellContent ContentTemplate="{DataTemplate local:Informations}" Route="Informations"  />
+        </Tab>
+
         <Tab Title="Payment">
             <ShellContent ContentTemplate="{DataTemplate local:Payment}" Route="Payment"  />
         </Tab>

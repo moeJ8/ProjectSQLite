@@ -5,6 +5,7 @@ namespace MauiSQLite;
 
 public partial class University : ContentPage
 {
+    private List<UniversityClass> selectedUniversities = new List<UniversityClass>();
     string major;
     public University()
 	{
@@ -19,9 +20,9 @@ public partial class University : ContentPage
             Location = Uni_Location.Text,
             Major = major
         });
-        Uni_Name.Text = string.Empty;
+        /*Uni_Name.Text = string.Empty;
         Uni_Location.Text = string.Empty;
-        MajorPicker.Title = string.Empty;
+        MajorPicker.Title = string.Empty;*/
         major = MajorPicker.SelectedItem as string;
         Uni_List_View.ItemsSource = App.DBTrans.GetAllUniversities();
     }
@@ -33,10 +34,12 @@ public partial class University : ContentPage
     }
     private async void GoToUniversityPage_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//Payment");
+
+        await Shell.Current.GoToAsync("//Informations");
     }
     private async void Previous_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//MainPage");
     }
+   
 }
