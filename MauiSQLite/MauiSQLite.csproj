@@ -73,6 +73,9 @@
 	  <MauiXaml Update="Views\Informations.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\IntroPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Paymnet.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -8,13 +8,16 @@
     Title="MauiSQLite">
 
     <TabBar >
-        <Tab Title="Student Information">
+        <Tab Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate local:IntroPage}" Route="IntroPage"  />
+        </Tab>
+        <Tab Title="Student Info">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"  />
         </Tab>
         <Tab Title="University">
             <ShellContent ContentTemplate="{DataTemplate local:University}" Route="University"  />
         </Tab>
-        <Tab Title="Informations">
+        <Tab Title="Information">
             <ShellContent ContentTemplate="{DataTemplate local:Informations}" Route="Informations"  />
         </Tab>
 
