@@ -17,7 +17,7 @@ namespace MauiSQLite
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            string _dbPath = Path.Combine(FileSystem.AppDataDirectory, "Studet.db4");
+            string _dbPath = Path.Combine(FileSystem.AppDataDirectory, "Studet.db5");
 
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<DBTrans>(s, _dbPath));
 
