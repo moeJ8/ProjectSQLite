@@ -68,7 +68,6 @@ public partial class Informations : ContentPage
     {
         double total = 0.0;
 
-        // Iterate through the items in info_List_View to calculate the total price
         foreach (var item in info_List_View.ItemsSource)
         {
             if (item is Models.Applications application)
@@ -80,13 +79,20 @@ public partial class Informations : ContentPage
 
         return total;
     }
+    private void Show_Selections_Clicked(object sender, EventArgs e)
+    {
+        Stu_List_View.ItemsSource = App.DBTrans.GetAllStudents();
+        Uni_List_View.ItemsSource = App.DBTrans.GetAllUniversities();
+    }
+  
 
 
     private async void continue_Clicked(object sender, EventArgs e)
     {
 
         totalPrice = CalculateTotalPrice();
-        await Shell.Current.GoToAsync($"//Payment?totalPrice={totalPrice}");
+        // await Shell.Current.GoToAsync($"//Payment?totalPrice={totalPrice}");
+        await Shell.Current.GoToAsync("//Payment");
     }
     private async void Previous_Clicked(object sender, EventArgs e)
     {

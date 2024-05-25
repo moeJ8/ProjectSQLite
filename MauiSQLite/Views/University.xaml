@@ -8,7 +8,7 @@
     
     <StackLayout>
 
-        <Label Text="Type The University Name" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Label Text="Choose The Universities and Majors You Want To Apply To" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" Margin="0,20,0,15"/>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10">
             
                 <Picker x:Name="UniPicker" Title="Name" BackgroundColor="#FFFFFF" TextColor="#333333"  TitleColor="#999999" WidthRequest="170" SelectedIndexChanged="UniPicker_SelectedIndexChanged">
