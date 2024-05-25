@@ -9,10 +9,10 @@
             <Button Text="Show Selections"
                 x:Name="Show_Selections"
                 HorizontalOptions="Center"
-                    BackgroundColor="#2C2C2C"
-                    TextColor="Wheat"
+                    BackgroundColor="#007BFF"
+                    CornerRadius="20"
                 Clicked="Show_Selections_Clicked"
-                                    Margin="5"
+                                    Margin="10"
                 />
             <StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
@@ -86,12 +86,12 @@
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Orientation="Horizontal">
-                                                 <Label Text="{Binding StudentID}" Margin="10,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                                                <Label Text="{Binding StudentName}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
-                                                <Label Text="{Binding StudentLastName}" Margin="10,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
-                                                <Label Text="{Binding UniversityID}" Margin="5,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
-                                                <Label Text="{Binding UniversityName}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
-                                                <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center"/>
+                                                 <Label Text="{Binding StudentID}" Margin="5,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding StudentName}" Margin="3,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding StudentLastName}" Margin="3,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding UniversityID}" Margin="3,0" TextColor="#DC3545" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding UniversityName}" Margin="3,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Major}" Margin="5,0" TextColor="#37474F" FontSize="10" VerticalTextAlignment="Center" FontAttributes="Bold"/>
 
                                                 <Button x:Name="Del_Button" Text="X" BindingContext="{Binding ApplicationID}" Clicked="Del_Button_Clicked"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10,0" BackgroundColor="#DC3545" CornerRadius="100" WidthRequest="40" HeightRequest="40" FontAttributes="Bold"/>
                                             </StackLayout>
