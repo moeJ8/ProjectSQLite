@@ -29,7 +29,7 @@ public partial class Informations : ContentPage
     private void show_Clicked(object sender, EventArgs e)
     {
         var uni = App.DBTrans.GetUniversityById(uniID);
-        totalPrice += (double)uni.Price;
+        //totalPrice += (double)uni.Price;
         App.DBTrans.AddApplication(new Models.Applications
         {
 
@@ -91,8 +91,8 @@ public partial class Informations : ContentPage
     {
 
         totalPrice = CalculateTotalPrice();
-        // await Shell.Current.GoToAsync($"//Payment?totalPrice={totalPrice}");
-        await Shell.Current.GoToAsync("//Payment");
+        //await Shell.Current.GoToAsync($"//Payment?totalPrice={totalPrice}");
+       await Shell.Current.GoToAsync("//Payment");
     }
     private async void Previous_Clicked(object sender, EventArgs e)
     {

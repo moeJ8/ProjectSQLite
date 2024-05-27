@@ -54,7 +54,7 @@ namespace MauiSQLite.DataTransactions
             conn.CreateTable<Applications>();
         }*/
 
-        public List<StudentClass> GetAllStudents()
+        public List<StudentClass> GetAllStudents() //change the name acc ur reqs
         {
             
             return conn.Table<StudentClass>().ToList();

@@ -10,7 +10,7 @@ namespace MauiSQLite.Models
     public class Applications
     {
         [PrimaryKey, AutoIncrement]
-        public int ApplicationID { get; set; }
+        public  int ApplicationID { get; set; }
         public int StudentID { get; set; }
         public int UniversityID { get; set; }
         public string StudentName { get; set; }

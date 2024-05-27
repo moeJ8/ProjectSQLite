@@ -12,6 +12,15 @@ public partial class Payment : ContentPage
             TotalAmountLabel.Text = $"Total amount to be paid is {value:C}";
         }
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        updateTotalPrice();
+    }
+    private void updateTotalPrice()
+    {
+        //TotalAmountLabel.Text = $"Total: { }";
+    }
     public Payment()
     {
         InitializeComponent();
